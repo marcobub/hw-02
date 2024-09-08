@@ -1,0 +1,110 @@
+Características Importantes de los Template Literals
+Interpolación de Expresiones
+
+Los template literals permiten la inserción de variables y expresiones dentro de una cadena de texto usando la sintaxis ${expresión}.
+Ejemplo:
+javascript
+Copiar código
+const name = "Alice";
+const age = 30;
+const greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(greeting);
+// Output: Hello, my name is Alice and I am 30 years old.
+Cadenas Multilínea
+
+Permiten la creación de cadenas de texto que abarcan varias líneas sin necesidad de usar caracteres especiales como \n.
+Ejemplo:
+javascript
+Copiar código
+const multilineString = `This is a string
+that spans multiple
+lines.`;
+console.log(multilineString);
+// Output: This is a string
+//         that spans multiple
+//         lines.
+Expresiones Incorporadas
+
+Puedes incluir expresiones JavaScript dentro de un template literal, no solo variables.
+Ejemplo:
+javascript
+Copiar código
+const a = 5;
+const b = 10;
+const result = `The sum of ${a} and ${b} is ${a + b}.`;
+console.log(result);
+// Output: The sum of 5 and 10 is 15.
+Etiquetas de Literales de Plantilla
+
+Los template literals también pueden ser etiquetados usando funciones de etiquetado para procesar el contenido antes de que se convierta en una cadena de texto.
+Ejemplo:
+javascript
+Copiar código
+function tag(strings, ...expressions) {
+  console.log(strings);
+  console.log(expressions);
+}
+
+const name = "Bob";
+const age = 25;
+tag`Name: ${name}, Age: ${age}`;
+// Output: ["Name: ", ", Age: "] ["Bob", 25]
+Diferencias con las Comillas Simples y Dobles
+Interpolación de Variables
+
+Comillas Simples y Dobles: No permiten la interpolación de variables directamente.
+javascript
+Copiar código
+const name = "Alice";
+const greeting = "Hello, my name is " + name + ".";
+console.log(greeting);
+// Output: Hello, my name is Alice.
+Template Literals: Permiten la interpolación de variables y expresiones usando ${}.
+javascript
+Copiar código
+const name = "Alice";
+const greeting = `Hello, my name is ${name}.`;
+console.log(greeting);
+// Output: Hello, my name is Alice.
+Cadenas Multilínea
+
+Comillas Simples y Dobles: Requieren el uso de \n para crear saltos de línea y la concatenación explícita si se necesita abarcar varias líneas.
+javascript
+Copiar código
+const multilineString = "This is a string\n" +
+                        "that spans multiple\n" +
+                        "lines.";
+console.log(multilineString);
+// Output: This is a string
+//         that spans multiple
+//         lines.
+Template Literals: Permiten el uso directo de saltos de línea dentro de las comillas.
+javascript
+Copiar código
+const multilineString = `This is a string
+that spans multiple
+lines.`;
+console.log(multilineString);
+// Output: This is a string
+//         that spans multiple
+//         lines.
+Escape de Caracteres
+
+Comillas Simples y Dobles: Necesitan usar barras invertidas (\) para escapar caracteres especiales como comillas dentro de la cadena.
+javascript
+Copiar código
+const singleQuoted = 'It\'s a single quoted string.';
+const doubleQuoted = "He said, \"Hello!\"";
+console.log(singleQuoted);
+console.log(doubleQuoted);
+// Output: It's a single quoted string.
+//         He said, "Hello!"
+Template Literals: Permiten incluir comillas simples y dobles sin necesidad de escaparlas, ya que no se requiere el uso de barras invertidas para caracteres especiales dentro de la cadena.
+javascript
+Copiar código
+const templateLiteral = `It's a string with "double quotes" and 'single quotes' included.`;
+console.log(templateLiteral);
+// Output: It's a string with "double quotes" and 'single quotes' included.
+Resumen
+Template Literals ofrecen una sintaxis más flexible para manejar cadenas de texto que abarcan múltiples líneas, permiten interpolación de variables y expresiones, y pueden ser procesados por funciones de etiquetado.
+Comillas Simples y Dobles son útiles para cadenas de texto más simples y requieren manejo manual de saltos de línea y escapado de caracteres especiales.
